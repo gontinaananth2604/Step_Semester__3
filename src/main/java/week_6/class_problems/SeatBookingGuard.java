@@ -1,0 +1,46 @@
+package week_6.class_problems;
+
+class CineScreen {
+    private int seatsTotal;
+    private int seatsAvailable;
+
+    public CineScreen(int seatsTotal) {
+        if (seatsTotal <= 0) {
+            System.out.println("construction rejected");
+            this.seatsTotal = 0;
+            this.seatsAvailable = 0;
+        } else {
+            this.seatsTotal = seatsTotal;
+            this.seatsAvailable = seatsTotal;
+        }
+    }
+
+    public void bookSeat() {
+        if (seatsAvailable > 0) {
+            seatsAvailable--;
+        }
+    }
+
+    public void cancelBooking() {
+        if (seatsAvailable < seatsTotal) {
+            seatsAvailable++;
+        }
+    }
+
+    public int getSeatsAvailable() {
+        return seatsAvailable;
+    }
+}
+
+public class SeatBookingGuard {
+    public static void main(String[] args) {
+        CineScreen screen0 = new CineScreen(0);
+        
+        CineScreen c = new CineScreen(2);
+        c.bookSeat(); c.bookSeat(); c.bookSeat();
+        System.out.println(c.getSeatsAvailable());
+        
+        c.cancelBooking(); c.cancelBooking(); c.cancelBooking();
+        System.out.println(c.getSeatsAvailable());
+    }
+}

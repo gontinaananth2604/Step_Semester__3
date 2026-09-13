@@ -1,4 +1,4 @@
-package week_6.assignment_problems;
+package week_5.assignment_problems;
 
 class BookInventory {
     private int copiesTotal;
